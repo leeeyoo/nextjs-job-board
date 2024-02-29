@@ -3,7 +3,7 @@ import JobListItem from "@/components/JobListItem";
 import JobResults from "@/components/JobResults";
 import H1 from "@/components/ui/h1";
 import prisma from "@/lib/prisma";
-import { jobFilerValues } from "@/lib/validation";
+import { JobFilerValues } from "@/lib/validation";
 
 interface PageProps {
   searchParams: {
@@ -17,7 +17,7 @@ interface PageProps {
 export default async function Home({
   searchParams: { q, type, location, remote },
 }: PageProps) {
-  const filterValues: jobFilerValues = {
+  const filterValues: JobFilerValues = {
     q,
     type,
     location,
