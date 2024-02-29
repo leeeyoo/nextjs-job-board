@@ -1,10 +1,10 @@
-import { jobFilerValues } from "@/lib/validation";
+import { JobFilerValues } from "@/lib/validation";
 import JobListItem from "./JobListItem";
 import prisma from "@/lib/prisma";
 import { Prisma } from "@prisma/client";
 
 interface JobResultsProps {
-  filterValues: jobFilerValues;
+  filterValues: JobFilerValues;
 }
 
 export default async function JobResults({
