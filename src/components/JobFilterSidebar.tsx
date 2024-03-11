@@ -4,7 +4,7 @@ import { Label } from "./ui/label";
 import Select from "./ui/select";
 import prisma from "@/lib/prisma";
 import { Button } from "./ui/button";
-import { JobFilerSchema, JobFilerValues } from "@/lib/validation";
+import { jobFilterSchema, JobFilterValues } from "@/lib/validation";
 import { redirect } from "next/navigation";
 import FormSubmitButton from "./FormSubmitButton";
 
@@ -13,7 +13,7 @@ async function filterJobs(formData: FormData) {
 
   const values = Object.fromEntries(formData.entries());
 
-  const { q, type, location, remote } = JobFilerSchema.parse(values);
+  const { q, type, location, remote } = jobFilterSchema.parse(values);
 
   const searchParams = new URLSearchParams({
     ...(q && { q: q.trim() }),
@@ -26,7 +26,7 @@ async function filterJobs(formData: FormData) {
 }
 
 interface JobFilterSidebarProps {
-  defaultValues: JobFilerValues;
+  defaultValues: JobFilterValues;
 }
 
 export default async function JobFilterSidebar({
