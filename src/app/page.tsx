@@ -3,7 +3,7 @@ import JobListItem from "@/components/JobListItem";
 import JobResults from "@/components/JobResults";
 import H1 from "@/components/ui/h1";
 import prisma from "@/lib/prisma";
-import { JobFilerValues } from "@/lib/validation";
+import { JobFilterValues } from "@/lib/validation";
 import { Metadata } from "next";
 
 interface PageProps {
@@ -15,7 +15,7 @@ interface PageProps {
   };
 }
 
-function getTitle({ q, type, location, remote }: JobFilerValues) {
+function getTitle({ q, type, location, remote }: JobFilterValues) {
   const titlePrefix = q
     ? `${q} jobs`
     : type
@@ -45,7 +45,7 @@ export function generateMetadata({
 export default async function Home({
   searchParams: { q, type, location, remote },
 }: PageProps) {
-  const filterValues: JobFilerValues = {
+  const filterValues: JobFilterValues = {
     q,
     type,
     location,

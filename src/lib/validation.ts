@@ -20,13 +20,14 @@ export const createJobSchema = z.object({
   ),
   companyName: requiredString.max(100),
   companyLogo: companyLogoSchema,
+  description: z.string().max(5000).optional(),
 });
 
-export const JobFilerSchema = z.object({
+export const JobFilterSchema = z.object({
   q: z.string().optional(),
   type: z.string().optional(),
   location: z.string().optional(),
   remote: z.coerce.boolean().optional(),
 });
 
-export type JobFilerValues = z.infer<typeof JobFilerSchema>;
+export type JobFilterValues = z.infer<typeof JobFilterSchema>;
